@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Arithmetic from '~/src/arithmetic';
+import ArithmeticComponent from '~/src/ArithmeticComponent';
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +11,8 @@ class App extends Component {
     return (
       <div>
         Hello, World!
+
+        <ArithmeticComponent />
       </div>
     );
   }
