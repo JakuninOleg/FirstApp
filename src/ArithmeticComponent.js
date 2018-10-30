@@ -9,7 +9,7 @@ const ArithmeticComponent = () => {
     <div>
       <p>Add: {Arithmetic.add(x, y)}</p>
       <p>Substract: {Arithmetic.substract(x, y)}</p>
-      <p>Multuply: {Arithmetic.multiply(x, y)}</p>
+      <p>Multiply: {Arithmetic.multiply(x, y)}</p>
       <p>Divide: {Arithmetic.divide(x, y)}</p>
     </div>
   );
