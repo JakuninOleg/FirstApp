@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Arithmetic from '~/src/arithmetic';
 
 class App extends Component {
   constructor(props) {

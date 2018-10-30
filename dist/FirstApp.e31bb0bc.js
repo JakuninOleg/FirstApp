@@ -23076,12 +23076,62 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"index.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/arithmetic.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Arithmetic =
+/*#__PURE__*/
+function () {
+  function Arithmetic() {
+    _classCallCheck(this, Arithmetic);
+  }
+
+  _createClass(Arithmetic, null, [{
+    key: "add",
+    value: function add(x, y) {
+      return x + y;
+    }
+  }, {
+    key: "substract",
+    value: function substract(x, y) {
+      return x - y;
+    }
+  }, {
+    key: "multiply",
+    value: function multiply(x, y) {
+      return x * y;
+    }
+  }, {
+    key: "divide",
+    value: function divide(x, y) {
+      return x / y;
+    }
+  }]);
+
+  return Arithmetic;
+}();
+
+var _default = Arithmetic;
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _arithmetic = _interopRequireDefault(require("~/src/arithmetic"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23127,7 +23177,7 @@ function (_Component) {
 }(_react.Component);
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","~/src/arithmetic":"src/arithmetic.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -23154,7 +23204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53895" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54054" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
