@@ -23141,12 +23141,104 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ArithmeticComponent = function ArithmeticComponent() {
   var x = 6;
   var y = 5;
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Add: ", _arithmetic.default.add(x, y)), _react.default.createElement("p", null, "Substract: ", _arithmetic.default.substract(x, y)), _react.default.createElement("p", null, "Multuply: ", _arithmetic.default.multiply(x, y)), _react.default.createElement("p", null, "Divide: ", _arithmetic.default.divide(x, y)));
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "First integer: ", x, ", Second integer: ", y), _react.default.createElement("p", null, "Add: ", _arithmetic.default.add(x, y)), _react.default.createElement("p", null, "Substract: ", _arithmetic.default.substract(x, y)), _react.default.createElement("p", null, "Multiply: ", _arithmetic.default.multiply(x, y)), _react.default.createElement("p", null, "Divide: ", _arithmetic.default.divide(x, y)));
 };
 
 var _default = ArithmeticComponent;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./arithmetic":"src/arithmetic.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./arithmetic":"src/arithmetic.js"}],"src/check.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Check =
+/*#__PURE__*/
+function () {
+  function Check() {
+    _classCallCheck(this, Check);
+
+    this._positions = [];
+  }
+
+  _createClass(Check, [{
+    key: "add",
+    value: function add(name, price) {
+      this._positions.push({
+        name: name,
+        price: price
+      });
+    }
+  }, {
+    key: "remove",
+    value: function remove(name) {
+      this._positions = this._positions.filter(function (position) {
+        return position.name !== name;
+      });
+    }
+  }, {
+    key: "positionsCount",
+    get: function get() {
+      return this._positions.length;
+    }
+  }, {
+    key: "positions",
+    get: function get() {
+      return this._positions;
+    }
+  }, {
+    key: "sum",
+    get: function get() {
+      return this._positions.reduce(function (total, position) {
+        return total + position.price;
+      }, 0);
+    }
+  }]);
+
+  return Check;
+}();
+
+var _default = Check;
+exports.default = _default;
+},{}],"src/CheckComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _check = _interopRequireDefault(require("~/src/check"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CheckComponent = function CheckComponent() {
+  var check = new _check.default();
+  check.add('apple', 5);
+  check.add('banana', 10);
+  check.add('lemon', 6);
+  check.add('mango', 8);
+  check.remove('lemon');
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "You have ", check.positionsCount, " items in your check:"), _react.default.createElement("ul", null, check.positions.map(function (position) {
+    return _react.default.createElement("li", {
+      key: position.name
+    }, position.name, ": ", position.price, "$");
+  })), _react.default.createElement("p", null, "Total sum: ", check.sum, "$"));
+};
+
+var _default = CheckComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","~/src/check":"src/check.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -23154,6 +23246,8 @@ var _react = _interopRequireWildcard(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _ArithmeticComponent = _interopRequireDefault(require("~/src/ArithmeticComponent"));
+
+var _CheckComponent = _interopRequireDefault(require("~/src/CheckComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23191,7 +23285,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, "Hello, World!", _react.default.createElement(_ArithmeticComponent.default, null));
+      return _react.default.createElement("div", null, "Hello, World!", _react.default.createElement(_ArithmeticComponent.default, null), _react.default.createElement(_CheckComponent.default, null));
     }
   }]);
 
@@ -23199,7 +23293,7 @@ function (_Component) {
 }(_react.Component);
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","~/src/ArithmeticComponent":"src/ArithmeticComponent.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","~/src/ArithmeticComponent":"src/ArithmeticComponent.js","~/src/CheckComponent":"src/CheckComponent.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -23226,7 +23320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63749" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52677" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
