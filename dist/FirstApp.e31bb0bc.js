@@ -23124,14 +23124,36 @@ function () {
 
 var _default = Arithmetic;
 exports.default = _default;
-},{}],"index.js":[function(require,module,exports) {
+},{}],"src/ArithmeticComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _arithmetic = _interopRequireDefault(require("./arithmetic"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ArithmeticComponent = function ArithmeticComponent() {
+  var x = 6;
+  var y = 5;
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Add: ", _arithmetic.default.add(x, y)), _react.default.createElement("p", null, "Substract: ", _arithmetic.default.substract(x, y)), _react.default.createElement("p", null, "Multuply: ", _arithmetic.default.multiply(x, y)), _react.default.createElement("p", null, "Divide: ", _arithmetic.default.divide(x, y)));
+};
+
+var _default = ArithmeticComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./arithmetic":"src/arithmetic.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _arithmetic = _interopRequireDefault(require("~/src/arithmetic"));
+var _ArithmeticComponent = _interopRequireDefault(require("~/src/ArithmeticComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23169,7 +23191,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, "Hello, World!");
+      return _react.default.createElement("div", null, "Hello, World!", _react.default.createElement(_ArithmeticComponent.default, null));
     }
   }]);
 
@@ -23177,7 +23199,7 @@ function (_Component) {
 }(_react.Component);
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","~/src/arithmetic":"src/arithmetic.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","~/src/ArithmeticComponent":"src/ArithmeticComponent.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -23204,7 +23226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54054" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63749" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
