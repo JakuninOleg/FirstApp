@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ArithmeticComponent from '~/src/ArithmeticComponent';
+import CheckComponent from '~/src/CheckComponent';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
         Hello, World!
 
         <ArithmeticComponent />
+        <CheckComponent />
       </div>
     );
   }
